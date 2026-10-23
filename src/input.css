@@ -22,3 +22,7 @@
   .legal a { @apply font-medium text-brand-600 underline decoration-brand-400/50 underline-offset-2 hover:decoration-brand-600; }
   .legal strong { @apply text-ink-950; }
 }
+
+@utility wrap {
+  @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10;
+}

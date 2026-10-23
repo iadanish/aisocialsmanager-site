@@ -24,7 +24,7 @@
 <body class="bg-white font-sans text-ink-950 antialiased">
 
 <header class="border-b border-slate-200 bg-white">
-  <div class="mx-auto flex max-w-6xl items-center gap-6 px-4 py-4 sm:px-6">
+  <div class="wrap flex items-center gap-6 py-4">
     <a href="/" class="flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-ink-950"><img src="/logo.svg" alt="" width="36" height="36" class="h-9 w-9 rounded-xl bg-white p-0.5"><span>Marketo<span class="text-brand-500">cat</span></span></a>
     <nav class="ml-auto hidden items-center gap-7 text-sm font-medium md:flex text-slate-600">
       <a href="/#how" class="transition hover:text-ink-950">How it works</a><a href="/#features" class="transition hover:text-ink-950">Features</a><a href="/#faq" class="transition hover:text-ink-950">FAQ</a><a href="/contact" class="transition hover:text-ink-950">Contact</a>
@@ -34,23 +34,24 @@
 </header>
 <main>
   <section class="bg-slate-50 border-b border-slate-200">
-    <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <div class="wrap py-14">
       <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">Marketocat</p>
       <h1 class="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">Data Deletion Instructions</h1>
       <p class="mt-3 text-sm text-slate-500">Last updated: October 23, 2026</p>
     </div>
   </section>
-  <article class="legal mx-auto max-w-3xl px-4 py-12 sm:px-6">
+  <div class="wrap grid gap-12 py-12 lg:grid-cols-[minmax(0,1fr)_300px]">
+    <article class="legal max-w-4xl">
 <p>Marketocat stores your data only on your own computer. Marketo Cat does not hold copies of your social media data on any server, so you control deletion directly.</p>
 
-<h2>1. Disconnect an account in the app</h2>
+<h2 id="1-disconnect-an-account-in-the-app" class="scroll-mt-8">1. Disconnect an account in the app</h2>
 <ol>
 <li>Open Marketocat and go to the brand's <strong>Channels</strong> settings.</li>
 <li>Choose the connected account (for example, your Facebook Page or LinkedIn profile) and select <strong>Disconnect</strong>.</li>
 <li>The app deletes that account's access token, refresh token and stored profile and page details.</li>
 </ol>
 
-<h2>2. Remove the app's access on the platform</h2>
+<h2 id="2-remove-the-app-s-access-on-the-platform" class="scroll-mt-8">2. Remove the app's access on the platform</h2>
 <ul>
 <li><strong>Facebook and Instagram:</strong> Facebook Settings &amp; privacy &gt; Settings &gt; Apps and websites &gt; find Marketocat &gt; Remove. When you remove the app, Meta stops sharing data with it.</li>
 <li><strong>LinkedIn:</strong> Settings &gt; Data privacy &gt; Permitted services &gt; Marketocat &gt; Remove.</li>
@@ -59,16 +60,18 @@
 <li><strong>TikTok:</strong> Settings and privacy &gt; Security &gt; Apps and services permissions &gt; Marketocat &gt; Remove access.</li>
 </ul>
 
-<h2>3. Delete everything</h2>
+<h2 id="3-delete-everything" class="scroll-mt-8">3. Delete everything</h2>
 <p>To delete all data, including posts, media and schedules, uninstall the app and delete its data folder on your computer.</p>
 
-<h2>Need help or want confirmation?</h2>
+<h2 id="need-help-or-want-confirmation" class="scroll-mt-8">Need help or want confirmation?</h2>
 <p>Email <a href="mailto:hey@marketocat.com">hey@marketocat.com</a> with the subject "Data deletion request". We will reply within 30 days, confirm that we hold no copy of your platform data on our systems, and help you delete it from your device. Any email correspondence we hold about you will also be deleted on request.</p>
-  </article>
+    </article>
+    <aside class="hidden lg:block"><nav class="sticky top-8 rounded-3xl border border-slate-200 p-6"><p class="text-sm font-bold text-ink-950">On this page</p><ul class="mt-3 space-y-2 text-sm"><li><a class="text-slate-600 hover:text-brand-600" href="#1-disconnect-an-account-in-the-app">1. Disconnect an account in the app</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#2-remove-the-app-s-access-on-the-platform">2. Remove the app's access on the platform</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#3-delete-everything">3. Delete everything</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#need-help-or-want-confirmation">Need help or want confirmation?</a></li></ul></nav></aside>
+  </div>
 </main>
 
 <footer class="bg-ink-950 text-slate-400">
-  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[2fr_1fr_1fr]">
+  <div class="wrap grid gap-10 py-14 md:grid-cols-[3fr_1fr_1fr]">
     <div>
       <a href="/" class="flex items-center gap-2.5 text-lg font-extrabold text-white"><img src="/logo.svg" alt="" width="36" height="36" class="h-9 w-9 rounded-xl bg-white p-0.5"><span>Marketo<span class="text-brand-500">cat</span></span></a>
       <p class="mt-4 max-w-sm text-sm leading-6">A local-first social media scheduler for teams and freelancers who manage more than one brand.</p>
@@ -92,7 +95,7 @@
     </div>
   </div>
   <div class="border-t border-white/10">
-    <div class="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 px-4 py-6 text-xs sm:px-6">
+    <div class="wrap flex flex-wrap justify-between gap-2 py-6 text-xs">
       <p>&copy; 2026 Marketo Cat. All rights reserved.</p>
       <p><a class="hover:text-white" href="mailto:hey@marketocat.com">hey@marketocat.com</a></p>
     </div>

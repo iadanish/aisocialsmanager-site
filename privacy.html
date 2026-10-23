@@ -24,7 +24,7 @@
 <body class="bg-white font-sans text-ink-950 antialiased">
 
 <header class="border-b border-slate-200 bg-white">
-  <div class="mx-auto flex max-w-6xl items-center gap-6 px-4 py-4 sm:px-6">
+  <div class="wrap flex items-center gap-6 py-4">
     <a href="/" class="flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-ink-950"><img src="/logo.svg" alt="" width="36" height="36" class="h-9 w-9 rounded-xl bg-white p-0.5"><span>Marketo<span class="text-brand-500">cat</span></span></a>
     <nav class="ml-auto hidden items-center gap-7 text-sm font-medium md:flex text-slate-600">
       <a href="/#how" class="transition hover:text-ink-950">How it works</a><a href="/#features" class="transition hover:text-ink-950">Features</a><a href="/#faq" class="transition hover:text-ink-950">FAQ</a><a href="/contact" class="transition hover:text-ink-950">Contact</a>
@@ -34,23 +34,24 @@
 </header>
 <main>
   <section class="bg-slate-50 border-b border-slate-200">
-    <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <div class="wrap py-14">
       <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">Marketocat</p>
       <h1 class="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">Privacy Policy</h1>
       <p class="mt-3 text-sm text-slate-500">Last updated: October 23, 2026</p>
     </div>
   </section>
-  <article class="legal mx-auto max-w-3xl px-4 py-12 sm:px-6">
+  <div class="wrap grid gap-12 py-12 lg:grid-cols-[minmax(0,1fr)_300px]">
+    <article class="legal max-w-4xl">
 <p>This policy explains how Marketocat (the "app"), a social media scheduling application operated by Marketo Cat ("we", "us"), handles information. It applies to the app and to this website, marketocat.com.</p>
 
-<h2>Summary</h2>
+<h2 id="summary" class="scroll-mt-8">Summary</h2>
 <ul>
 <li>The app runs on your own computer. Your posts, media, schedules and social account access tokens are stored there.</li>
 <li>We do not run a server that receives your social media content or tokens, and we do not sell or share your data.</li>
 <li>The app talks directly to the social platforms you connect, only to do what you asked.</li>
 </ul>
 
-<h2>Information the app handles</h2>
+<h2 id="information-the-app-handles" class="scroll-mt-8">Information the app handles</h2>
 <p>When you connect a social account, the app receives information from that platform through its official API. This can include:</p>
 <ul>
 <li>Basic profile information: your name, profile picture and account or user ID.</li>
@@ -60,7 +61,7 @@
 </ul>
 <p>You also give the app the content you create: post text, images, videos and scheduling times.</p>
 
-<h2>How the information is used</h2>
+<h2 id="how-the-information-is-used" class="scroll-mt-8">How the information is used</h2>
 <p>The app uses this information only to:</p>
 <ul>
 <li>show you which accounts and pages are connected;</li>
@@ -69,38 +70,40 @@
 </ul>
 <p>The app does not use platform data for advertising, profiling, analytics about other people, or training AI models, and it does not combine it with data from other sources.</p>
 
-<h2>Where it is stored</h2>
+<h2 id="where-it-is-stored" class="scroll-mt-8">Where it is stored</h2>
 <p>All of the above is stored locally on the computer where you run the app, in its local database and media folder. Marketo Cat has no access to it. Data leaves your computer only when the app sends a request you initiated to the relevant platform (for example, uploading a video to YouTube).</p>
 
-<h2>Sharing</h2>
+<h2 id="sharing" class="scroll-mt-8">Sharing</h2>
 <p>We do not sell, rent or share your information. Content is sent only to the social platform you selected for a post. Your use of each platform is also governed by its own terms and privacy policy, including LinkedIn, Meta (Facebook and Instagram), X, Google (YouTube) and TikTok. YouTube publishing uses the YouTube API Services; see the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
 
-<h2>Google user data</h2>
+<h2 id="google-user-data" class="scroll-mt-8">Google user data</h2>
 <p>The app's use and transfer of information received from Google APIs follows the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
 
-<h2>Retention and deletion</h2>
+<h2 id="retention-and-deletion" class="scroll-mt-8">Retention and deletion</h2>
 <p>Data stays on your computer until you delete it. You can disconnect an account in the app, which deletes its tokens and profile details; delete individual posts; or uninstall the app and delete its data folder to remove everything. You can also revoke the app's access from each platform's own settings. Step-by-step instructions are on the <a href="/data-deletion">Data Deletion</a> page.</p>
 
-<h2>This website</h2>
+<h2 id="this-website" class="scroll-mt-8">This website</h2>
 <p>marketocat.com is a static website. It does not use cookies, analytics or tracking scripts. Our hosting provider, Cloudflare, may process standard technical data such as IP addresses to deliver and protect the site. Pages load the Plus Jakarta Sans font from Google Fonts, which receives your IP address when serving it.</p>
 <p>If you email us, we use your email address and message only to reply, and delete them when they are no longer needed.</p>
 
-<h2>Security</h2>
+<h2 id="security" class="scroll-mt-8">Security</h2>
 <p>Tokens are stored only on your device and are sent only to the platform that issued them, over HTTPS. Keep your computer and its user account secure, because anyone with access to it can use the app.</p>
 
-<h2>Children</h2>
+<h2 id="children" class="scroll-mt-8">Children</h2>
 <p>The app is not intended for anyone under 16.</p>
 
-<h2>Changes</h2>
+<h2 id="changes" class="scroll-mt-8">Changes</h2>
 <p>We may update this policy. The date at the top shows when it was last changed.</p>
 
-<h2>Contact</h2>
+<h2 id="contact" class="scroll-mt-8">Contact</h2>
 <p>Marketo Cat, <a href="mailto:hey@marketocat.com">hey@marketocat.com</a>. You can also reach us through our <a href="/contact">contact page</a>.</p>
-  </article>
+    </article>
+    <aside class="hidden lg:block"><nav class="sticky top-8 rounded-3xl border border-slate-200 p-6"><p class="text-sm font-bold text-ink-950">On this page</p><ul class="mt-3 space-y-2 text-sm"><li><a class="text-slate-600 hover:text-brand-600" href="#summary">Summary</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#information-the-app-handles">Information the app handles</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#how-the-information-is-used">How the information is used</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#where-it-is-stored">Where it is stored</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#sharing">Sharing</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#google-user-data">Google user data</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#retention-and-deletion">Retention and deletion</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#this-website">This website</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#security">Security</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#children">Children</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#changes">Changes</a></li><li><a class="text-slate-600 hover:text-brand-600" href="#contact">Contact</a></li></ul></nav></aside>
+  </div>
 </main>
 
 <footer class="bg-ink-950 text-slate-400">
-  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[2fr_1fr_1fr]">
+  <div class="wrap grid gap-10 py-14 md:grid-cols-[3fr_1fr_1fr]">
     <div>
       <a href="/" class="flex items-center gap-2.5 text-lg font-extrabold text-white"><img src="/logo.svg" alt="" width="36" height="36" class="h-9 w-9 rounded-xl bg-white p-0.5"><span>Marketo<span class="text-brand-500">cat</span></span></a>
       <p class="mt-4 max-w-sm text-sm leading-6">A local-first social media scheduler for teams and freelancers who manage more than one brand.</p>
@@ -124,7 +127,7 @@
     </div>
   </div>
   <div class="border-t border-white/10">
-    <div class="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 px-4 py-6 text-xs sm:px-6">
+    <div class="wrap flex flex-wrap justify-between gap-2 py-6 text-xs">
       <p>&copy; 2026 Marketo Cat. All rights reserved.</p>
       <p><a class="hover:text-white" href="mailto:hey@marketocat.com">hey@marketocat.com</a></p>
     </div>

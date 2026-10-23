@@ -1,5 +1,14 @@
 // Generates the static marketocat.com pages. Run `npm run build`, then commit the output.
 import { writeFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+
+// Iconsax icons (iconsax-react), rendered to inline SVG at build time.
+const require = createRequire(import.meta.url);
+const { createElement } = require('react');
+const { renderToStaticMarkup } = require('react-dom/server');
+const Iconsax = require('iconsax-react');
+const icon = (name, cls = 'h-5 w-5', variant = 'Bulk') =>
+  renderToStaticMarkup(createElement(Iconsax[name], { color: 'currentColor', variant })).replace('<svg ', `<svg aria-hidden="true" class="${cls}" `);
 
 const EMAIL = 'hey@marketocat.com';
 const UPDATED = 'October 23, 2026';
@@ -17,7 +26,7 @@ const logo = (size = 'h-9 w-9') =>
 
 const header = (dark) => `
 <header class="${dark ? 'absolute inset-x-0 top-0 z-20' : 'border-b border-slate-200 bg-white'}">
-  <div class="mx-auto flex max-w-6xl items-center gap-6 px-4 py-4 sm:px-6">
+  <div class="wrap flex items-center gap-6 py-4">
     <a href="/" class="flex items-center gap-2.5 text-lg font-extrabold tracking-tight ${dark ? 'text-white' : 'text-ink-950'}">${logo()}<span>Marketo<span class="text-brand-500">cat</span></span></a>
     <nav class="ml-auto hidden items-center gap-7 text-sm font-medium md:flex ${dark ? 'text-slate-300' : 'text-slate-600'}">
       ${NAV.map(([h, t]) => `<a href="${h}" class="transition hover:${dark ? 'text-white' : 'text-ink-950'}">${t}</a>`).join('')}
@@ -28,7 +37,7 @@ const header = (dark) => `
 
 const footer = `
 <footer class="bg-ink-950 text-slate-400">
-  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[2fr_1fr_1fr]">
+  <div class="wrap grid gap-10 py-14 md:grid-cols-[3fr_1fr_1fr]">
     <div>
       <a href="/" class="flex items-center gap-2.5 text-lg font-extrabold text-white">${logo()}<span>Marketo<span class="text-brand-500">cat</span></span></a>
       <p class="mt-4 max-w-sm text-sm leading-6">A local-first social media scheduler for teams and freelancers who manage more than one brand.</p>
@@ -52,7 +61,7 @@ const footer = `
     </div>
   </div>
   <div class="border-t border-white/10">
-    <div class="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 px-4 py-6 text-xs sm:px-6">
+    <div class="wrap flex flex-wrap justify-between gap-2 py-6 text-xs">
       <p>&copy; 2026 Marketo Cat. All rights reserved.</p>
       <p><a class="hover:text-white" href="mailto:${EMAIL}">${EMAIL}</a></p>
     </div>
@@ -90,19 +99,27 @@ ${footer}
 </html>
 `);
 
-const legal = (file, meta, heading, body) => page(file, meta, `
+const slug = (t) => t.toLowerCase().replace(/&amp;/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const legal = (file, meta, heading, body) => {
+  const toc = [];
+  const withIds = body.replace(/<h2>(.*?)<\/h2>/g, (_, t) => { const id = slug(t); toc.push([id, t]); return `<h2 id="${id}" class="scroll-mt-8">${t}</h2>`; });
+  return page(file, meta, `
 <main>
   <section class="bg-slate-50 border-b border-slate-200">
-    <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <div class="wrap py-14">
       <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">Marketocat</p>
       <h1 class="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">${heading}</h1>
       <p class="mt-3 text-sm text-slate-500">Last updated: ${UPDATED}</p>
     </div>
   </section>
-  <article class="legal mx-auto max-w-3xl px-4 py-12 sm:px-6">
-${body.trim()}
-  </article>
+  <div class="wrap grid gap-12 py-12 lg:grid-cols-[minmax(0,1fr)_300px]">
+    <article class="legal max-w-4xl">
+${withIds.trim()}
+    </article>
+    ${toc.length ? `<aside class="hidden lg:block"><nav class="sticky top-8 rounded-3xl border border-slate-200 p-6"><p class="text-sm font-bold text-ink-950">On this page</p><ul class="mt-3 space-y-2 text-sm">${toc.map(([id, t]) => `<li><a class="text-slate-600 hover:text-brand-600" href="#${id}">${t}</a></li>`).join('')}</ul></nav></aside>` : ''}
+  </div>
 </main>`);
+};
 
 // ---------- Landing ----------
 const NETWORKS = [
@@ -115,12 +132,12 @@ const NETWORKS = [
 ];
 
 const FEATURES = [
-  ['Multi-brand workspaces', 'Keep each brand’s accounts, drafts, media and calendar separate, and switch between them in one click.', 'M4 6h16M4 12h16M4 18h10'],
-  ['One post, every network', 'Write once, then tailor the caption, hashtags and media for each network before it goes out.', 'M12 4v16m8-8H4'],
-  ['Visual calendar', 'See every scheduled post by day and week. Drag to reschedule, or cancel before it publishes.', 'M7 3v3m10-3v3M4 9h16M5 6h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z'],
-  ['Local-first by design', 'Content, media and account tokens stay on your computer. No Marketocat server ever sees them.', 'M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z'],
-  ['Official APIs only', 'Accounts connect through each platform’s own sign-in (OAuth), and every post uses its official publishing API.', 'M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z'],
-  ['Clear publish status', 'See whether each post was published, with a direct link to it, or why a platform rejected it.', 'M13 10V3L4 14h7v7l9-11h-7z'],
+  ['Multi-brand workspaces', 'Keep each brand’s accounts, drafts, media and calendar separate, and switch between them in one click.', 'Layer'],
+  ['One post, every network', 'Write once, then tailor the caption, hashtags and media for each network before it goes out.', 'Edit2'],
+  ['Visual calendar', 'See every scheduled post by day and week. Drag to reschedule, or cancel before it publishes.', 'Calendar'],
+  ['Local-first by design', 'Content, media and account tokens stay on your computer. No Marketocat server ever sees them.', 'ShieldTick'],
+  ['Official APIs only', 'Accounts connect through each platform’s own sign-in (OAuth), and every post uses its official publishing API.', 'Link21'],
+  ['Clear publish status', 'See whether each post was published, with a direct link to it, or why a platform rejected it.', 'Flash'],
 ];
 
 const FAQ = [
@@ -134,7 +151,7 @@ const FAQ = [
 const pill = (t) => `<span class="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-medium text-slate-200 backdrop-blur">${t}</span>`;
 
 const mockup = `
-<div class="relative mx-auto mt-16 max-w-5xl rounded-[28px] border border-white/15 bg-white/10 p-2 shadow-2xl shadow-black/40 backdrop-blur">
+<div class="relative mx-auto mt-16 max-w-6xl rounded-[28px] border border-white/15 bg-white/10 p-2 shadow-2xl shadow-black/40 backdrop-blur">
   <div class="overflow-hidden rounded-[22px] bg-white text-left">
     <div class="flex items-center gap-3 border-b border-slate-200 bg-slate-50 px-5 py-3">
       <span class="h-3 w-3 rounded-full bg-red-400"></span><span class="h-3 w-3 rounded-full bg-amber-400"></span><span class="h-3 w-3 rounded-full bg-emerald-400"></span>
@@ -147,7 +164,7 @@ const mockup = `
         <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">New post</p>
         <div class="mt-3 rounded-xl border border-slate-200 p-4 text-sm leading-6 text-slate-700">Our autumn blend is back ☕ Roasted in small batches, ready Monday. Which café should we visit first?</div>
         <div class="mt-3 flex flex-wrap gap-2">
-          ${['LinkedIn', 'Instagram', 'Facebook', 'X'].map((n) => `<span class="rounded-full border border-brand-400/60 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600">✓ ${n}</span>`).join('')}
+          ${['LinkedIn', 'Instagram', 'Facebook', 'X'].map((n) => `<span class="rounded-full border border-brand-400/60 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600 inline-flex items-center gap-1">${icon('TickCircle', 'h-3.5 w-3.5')}${n}</span>`).join('')}
         </div>
         <div class="mt-4 flex items-center justify-between rounded-xl bg-ink-950 px-4 py-3 text-sm text-white">
           <span>Mon, Oct 26 · 9:00 AM</span><span class="rounded-lg bg-brand-500 px-3 py-1 text-xs font-bold">Schedule</span>
@@ -164,7 +181,7 @@ const mockup = `
             ['bg-violet-100 text-violet-700', '15:00 Weekend menu'],
           ].filter((_, j) => j === i || (i === 2 && j === 0)).map(([c, t]) => `<p class="mt-2 rounded-lg ${c} px-1.5 py-1 font-medium leading-4">${t}</p>`).join('')}</div>`).join('')}
         </div>
-        <div class="mt-4 flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-700">✓ Published to LinkedIn · Company page · 2 min ago</div>
+        <div class="mt-4 flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-700">${icon('TickCircle', 'h-4 w-4 shrink-0')} Published to LinkedIn · Company page · 2 min ago</div>
       </div>
     </div>
   </div>
@@ -183,20 +200,20 @@ page('index.html', {
       <div class="absolute bottom-0 right-0 h-[400px] w-[500px] rounded-full bg-indigo-500/20 blur-3xl"></div>
       <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]"></div>
     </div>
-    <div class="relative mx-auto max-w-6xl px-4 text-center sm:px-6">
+    <div class="wrap relative text-center">
       ${pill('Local-first · Multi-brand · 6 networks')}
       <h1 class="mx-auto mt-7 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-7xl">Schedule social posts for <span class="bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent">every brand</span> you run</h1>
       <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">Plan, write and publish to LinkedIn, Facebook, Instagram, X, YouTube and TikTok from one calendar. Your content and accounts stay on your own computer.</p>
       <div class="mt-9 flex flex-wrap justify-center gap-3">
         <a href="mailto:${EMAIL}?subject=Marketocat%20early%20access" class="rounded-full bg-brand-500 px-7 py-3.5 text-base font-bold text-ink-950 shadow-lg shadow-brand-500/30 transition hover:bg-brand-400">Get early access</a>
-        <a href="#how" class="rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white transition hover:bg-white/10">See how it works</a>
+        <a href="#how" class="rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white transition hover:bg-white/10">See how it works ${icon('ArrowDown', 'inline h-4 w-4', 'Linear')}</a>
       </div>
       ${mockup}
     </div>
   </section>
 
   <section class="border-b border-slate-200 bg-white py-10">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="wrap">
       <p class="text-center text-sm font-semibold uppercase tracking-wider text-slate-400">Publishes to</p>
       <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         ${NETWORKS.map(([n, d, c]) => `<div class="rounded-2xl border border-slate-200 px-4 py-3"><p class="flex items-center gap-2 font-bold"><span class="h-2.5 w-2.5 rounded-full" style="background:${c}"></span>${n}</p><p class="mt-0.5 text-xs text-slate-500">${d}</p></div>`).join('')}
@@ -205,7 +222,7 @@ page('index.html', {
   </section>
 
   <section id="how" class="scroll-mt-8 bg-slate-50 py-24">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="wrap">
       <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">How it works</p>
       <h2 class="mt-2 max-w-2xl text-4xl font-extrabold tracking-tight sm:text-5xl">From draft to published in three steps</h2>
       <div class="mt-12 grid gap-6 md:grid-cols-3">
@@ -219,19 +236,19 @@ page('index.html', {
   </section>
 
   <section id="features" class="scroll-mt-8 py-24">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="wrap">
       <div class="max-w-2xl">
         <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">Features</p>
         <h2 class="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">Built for people who run more than one brand</h2>
       </div>
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        ${FEATURES.map(([t, d, icon]) => `<div class="group rounded-3xl border border-slate-200 p-7 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/10"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 group-hover:bg-brand-500 group-hover:text-white"><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="${icon}"/></svg></span><h3 class="mt-5 text-lg font-bold">${t}</h3><p class="mt-2 leading-7 text-slate-600">${d}</p></div>`).join('')}
+        ${FEATURES.map(([t, d, icon_]) => `<div class="group rounded-3xl border border-slate-200 p-7 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/10"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 group-hover:bg-brand-500 group-hover:text-white">${icon(icon_)}</span><h3 class="mt-5 text-lg font-bold">${t}</h3><p class="mt-2 leading-7 text-slate-600">${d}</p></div>`).join('')}
       </div>
     </div>
   </section>
 
-  <section class="px-4 sm:px-6">
-    <div class="relative mx-auto max-w-6xl overflow-hidden rounded-[32px] bg-ink-950 px-8 py-14 text-white sm:px-14">
+  <section class="wrap">
+    <div class="relative overflow-hidden rounded-[32px] bg-ink-950 px-8 py-14 text-white sm:px-14">
       <div aria-hidden="true" class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-brand-500/30 blur-3xl"></div>
       <div class="relative grid items-center gap-10 md:grid-cols-[1.4fr_1fr]">
         <div>
@@ -240,25 +257,26 @@ page('index.html', {
           <p class="mt-4 max-w-xl leading-7 text-slate-300">Marketocat stores posts, media and access tokens locally. It talks only to the networks you connect, only to do what you scheduled. No ads, no tracking, no selling data.</p>
         </div>
         <ul class="space-y-3 text-sm">
-          ${['No Marketocat cloud holding your content', 'Tokens never leave your device except to the platform that issued them', 'Disconnect any account to delete its tokens instantly'].map((t) => `<li class="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"><span class="text-brand-400">✓</span>${t}</li>`).join('')}
-          <li><a href="/privacy" class="inline-block pt-1 font-semibold text-brand-400 hover:text-brand-100">Read the privacy policy →</a></li>
+          ${['No Marketocat cloud holding your content', 'Tokens never leave your device except to the platform that issued them', 'Disconnect any account to delete its tokens instantly'].map((t) => `<li class="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">${icon('TickCircle', 'h-5 w-5 shrink-0 text-brand-400')}${t}</li>`).join('')}
+          <li><a href="/privacy" class="inline-block pt-1 font-semibold text-brand-400 hover:text-brand-100">Read the privacy policy ${icon('ArrowRight', 'inline h-4 w-4', 'Linear')}</a></li>
         </ul>
       </div>
     </div>
   </section>
 
   <section id="faq" class="scroll-mt-8 py-24">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6">
-      <p class="text-center text-sm font-semibold uppercase tracking-wider text-brand-600">FAQ</p>
-      <h2 class="mt-2 text-center text-4xl font-extrabold tracking-tight">Questions, answered</h2>
-      <div class="mt-10 divide-y divide-slate-200 rounded-3xl border border-slate-200">
-        ${FAQ.map(([q, a]) => `<details class="group p-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold">${q}<span class="text-2xl font-normal text-brand-500 transition group-open:rotate-45">+</span></summary><p class="mt-3 leading-7 text-slate-600">${a}</p></details>`).join('')}
+    <div class="wrap grid gap-10 lg:grid-cols-[1fr_2fr]">
+      <div><p class="text-sm font-semibold uppercase tracking-wider text-brand-600">FAQ</p>
+      <h2 class="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">Questions, answered</h2>
+      <p class="mt-4 max-w-sm leading-7 text-slate-600">Something else? Email <a class="font-semibold text-brand-600 underline" href="mailto:${EMAIL}">${EMAIL}</a>.</p></div>
+      <div class="divide-y divide-slate-200 rounded-3xl border border-slate-200">
+        ${FAQ.map(([q, a]) => `<details class="group p-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold">${q}<span class="text-brand-500 transition group-open:rotate-45">${icon('Add', 'h-6 w-6', 'Linear')}</span></summary><p class="mt-3 leading-7 text-slate-600">${a}</p></details>`).join('')}
       </div>
     </div>
   </section>
 
-  <section class="px-4 pb-24 sm:px-6">
-    <div class="mx-auto max-w-6xl rounded-[32px] bg-gradient-to-br from-brand-400 to-brand-600 px-8 py-14 text-center sm:px-14">
+  <section class="wrap pb-24">
+    <div class="rounded-[32px] bg-gradient-to-br from-brand-400 to-brand-600 px-8 py-14 text-center sm:px-14">
       <h2 class="text-3xl font-extrabold tracking-tight text-ink-950 sm:text-4xl">Ready to put your posting on autopilot?</h2>
       <p class="mx-auto mt-3 max-w-xl text-ink-900/80">Marketocat is in early access. Tell us about your brands and we’ll get you set up.</p>
       <a href="mailto:${EMAIL}?subject=Marketocat%20early%20access" class="mt-8 inline-block rounded-full bg-ink-950 px-7 py-3.5 font-bold text-white transition hover:bg-ink-800">Email ${EMAIL}</a>
@@ -390,8 +408,8 @@ legal('data-deletion.html', { title: 'Data Deletion Instructions | Marketocat', 
 legal('contact.html', { title: 'Contact and Support | Marketocat', desc: 'Contact Marketo Cat for Marketocat support, privacy and data requests.', path: '/contact' }, 'Contact and support', `
 <p>Marketocat is made by <strong>Marketo Cat</strong>. We usually reply within 2 business days.</p>
 <div class="not-prose my-8 grid gap-4 sm:grid-cols-2">
-  <a href="mailto:${EMAIL}" class="block rounded-3xl border border-slate-200 p-6 no-underline transition hover:border-brand-400 hover:shadow-lg"><p class="text-sm font-semibold uppercase tracking-wider text-brand-600">Email</p><p class="mt-1 text-lg font-bold text-ink-950">${EMAIL}</p></a>
-  <a href="https://www.linkedin.com/company/marketo-cat/" class="block rounded-3xl border border-slate-200 p-6 no-underline transition hover:border-brand-400 hover:shadow-lg"><p class="text-sm font-semibold uppercase tracking-wider text-brand-600">LinkedIn</p><p class="mt-1 text-lg font-bold text-ink-950">Marketo Cat</p></a>
+  <a href="mailto:${EMAIL}" class="block rounded-3xl border border-slate-200 p-6 no-underline transition hover:border-brand-400 hover:shadow-lg">${icon('Sms', 'h-8 w-8 text-brand-500')}<p class="text-sm font-semibold uppercase tracking-wider text-brand-600">Email</p><p class="mt-1 text-lg font-bold text-ink-950">${EMAIL}</p></a>
+  <a href="https://www.linkedin.com/company/marketo-cat/" class="block rounded-3xl border border-slate-200 p-6 no-underline transition hover:border-brand-400 hover:shadow-lg">${icon('Profile2User', 'h-8 w-8 text-brand-500')}<p class="text-sm font-semibold uppercase tracking-wider text-brand-600">LinkedIn</p><p class="mt-1 text-lg font-bold text-ink-950">Marketo Cat</p></a>
 </div>
 <h2>What to include</h2>
 <ul>

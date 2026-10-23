@@ -1,34 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#6366f1"/>
-      <stop offset="1" stop-color="#a855f7"/>
-    </linearGradient>
-    <linearGradient id="plane" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#6366f1"/>
-      <stop offset="1" stop-color="#7c3aed"/>
-    </linearGradient>
-  </defs>
-
-  <!-- rounded app tile -->
-  <rect width="1024" height="1024" rx="220" fill="url(#bg)"/>
-
-  <!-- calendar binding rings -->
-  <rect x="376" y="228" width="36" height="130" rx="18" fill="#c7d2fe"/>
-  <rect x="612" y="228" width="36" height="130" rx="18" fill="#c7d2fe"/>
-
-  <!-- calendar body -->
-  <rect x="228" y="304" width="568" height="464" rx="48" fill="#ffffff"/>
-  <!-- calendar header band -->
-  <path d="M228 352 a48 48 0 0 1 48 -48 h472 a48 48 0 0 1 48 48 v64 h-568 z" fill="#e0e7ff"/>
-
-  <!-- date dots -->
-  <g fill="#6366f1">
-    <circle cx="336" cy="516" r="24"/><circle cx="452" cy="516" r="24"/><circle cx="568" cy="516" r="24"/>
-    <circle cx="336" cy="632" r="24"/><circle cx="452" cy="632" r="24"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Marketocat">
+  <!-- orange "C" -->
+  <path d="M93 32 A42 42 0 1 0 93 88" fill="none" stroke="#F7931E" stroke-width="20" stroke-linecap="butt"/>
+  <!-- cat head (white knockout over the C) -->
+  <path d="M30 40 L33 20 L46 31 Q55 28 64 31 L77 20 L80 40 Q86 50 84 62 Q80 82 55 84 Q30 82 26 62 Q24 50 30 40 Z" fill="#fff"/>
+  <path d="M30 40 L33 20 L46 31 Q55 28 64 31 L77 20 L80 40 Q86 50 84 62 Q80 82 55 84 Q30 82 26 62 Q24 50 30 40 Z" fill="none" stroke="#F7931E" stroke-width="3" stroke-linejoin="round"/>
+  <!-- eyes -->
+  <circle cx="43" cy="54" r="7.5" fill="#F7931E"/><circle cx="67" cy="54" r="7.5" fill="#F7931E"/>
+  <circle cx="45" cy="52" r="2.4" fill="#fff"/><circle cx="69" cy="52" r="2.4" fill="#fff"/>
+  <!-- nose + mouth -->
+  <path d="M51.5 64 L58.5 64 L55 68 Z" fill="#F7931E"/>
+  <path d="M55 68 Q55 72 50 72 M55 68 Q55 72 60 72" fill="none" stroke="#F7931E" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- whiskers -->
+  <path d="M40 66 L22 63 M40 70 L22 72 M70 66 L88 63 M70 70 L88 72" stroke="#F7931E" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- paw prints -->
+  <g fill="#F7931E">
+    <g transform="translate(103 44) scale(.9)"><ellipse cx="0" cy="3" rx="5" ry="4"/><circle cx="-5" cy="-3" r="2"/><circle cx="-1.7" cy="-5.5" r="2"/><circle cx="1.7" cy="-5.5" r="2"/><circle cx="5" cy="-3" r="2"/></g>
+    <g transform="translate(108 64) scale(.75)"><ellipse cx="0" cy="3" rx="5" ry="4"/><circle cx="-5" cy="-3" r="2"/><circle cx="-1.7" cy="-5.5" r="2"/><circle cx="1.7" cy="-5.5" r="2"/><circle cx="5" cy="-3" r="2"/></g>
+    <g transform="translate(101 80) scale(.6)"><ellipse cx="0" cy="3" rx="5" ry="4"/><circle cx="-5" cy="-3" r="2"/><circle cx="-1.7" cy="-5.5" r="2"/><circle cx="1.7" cy="-5.5" r="2"/><circle cx="5" cy="-3" r="2"/></g>
   </g>
-
-  <!-- send badge -->
-  <circle cx="744" cy="744" r="180" fill="#ffffff"/>
-  <path d="M660 676 L838 744 L660 812 L662 764 L772 744 L662 724 Z" fill="url(#plane)"/>
 </svg>

@@ -1,46 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AISocialsManager by Marketo Cat: local-first social media scheduler</title>
-<meta name="description" content="AISocialsManager is a local-first social media scheduler for managing multiple brands on LinkedIn, Facebook, Instagram, X, YouTube and TikTok.">
-<link rel="icon" href="/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/icon-512.png">
+<title>Marketocat: local-first social media scheduler for multiple brands</title>
+<meta name="description" content="Marketocat schedules and publishes posts to LinkedIn, Facebook, Instagram, X, YouTube and TikTok for every brand you manage. Local-first: your data stays on your computer.">
 <link rel="canonical" href="https://marketocat.com/">
-<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icon-512.png">
+<meta name="theme-color" content="#0b1324">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Marketocat">
+<meta property="og:title" content="Marketocat: local-first social media scheduler for multiple brands">
+<meta property="og:description" content="Marketocat schedules and publishes posts to LinkedIn, Facebook, Instagram, X, YouTube and TikTok for every brand you manage. Local-first: your data stays on your computer.">
+<meta property="og:url" content="https://marketocat.com/">
+<meta property="og:image" content="https://marketocat.com/icon-1024.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Marketo Cat","url":"https://marketocat.com","logo":"https://marketocat.com/icon-1024.png","email":"hey@marketocat.com","sameAs":["https://www.linkedin.com/company/marketo-cat/"]}</script>
 </head>
-<body>
-<header>
-<a class="brand" href="/"><img src="/icon.svg" alt="" width="36" height="36">AISocialsManager</a>
-<nav><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/data-deletion">Data deletion</a><a href="/contact">Contact</a></nav>
+<body class="bg-white font-sans text-ink-950 antialiased">
+
+<header class="absolute inset-x-0 top-0 z-20">
+  <div class="mx-auto flex max-w-6xl items-center gap-6 px-4 py-4 sm:px-6">
+    <a href="/" class="flex items-center gap-2.5 text-lg font-extrabold tracking-tight text-white"><img src="/logo.svg" alt="" width="36" height="36" class="h-9 w-9 rounded-xl bg-white p-0.5"><span>Marketo<span class="text-brand-500">cat</span></span></a>
+    <nav class="ml-auto hidden items-center gap-7 text-sm font-medium md:flex text-slate-300">
+      <a href="/#how" class="transition hover:text-white">How it works</a><a href="/#features" class="transition hover:text-white">Features</a><a href="/#faq" class="transition hover:text-white">FAQ</a><a href="/contact" class="transition hover:text-white">Contact</a>
+    </nav>
+    <a href="mailto:hey@marketocat.com?subject=Marketocat%20early%20access" class="ml-auto rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 px-4 py-2 text-sm font-semibold transition md:ml-0">Get early access</a>
+  </div>
 </header>
 <main>
-<section class="hero">
-<h1>Plan and publish social posts for every brand you manage</h1>
-<p class="lead">AISocialsManager is a local-first social media scheduler made by Marketo Cat. Write a post once, adapt it for each network, schedule it, and let the app publish it to LinkedIn, Facebook, Instagram, X, YouTube and TikTok.</p>
-</section>
-<div class="grid">
-<div class="card"><h3>Multiple brands</h3><p>Keep each brand's accounts, drafts, media and calendar separate in one workspace.</p></div>
-<div class="card"><h3>Six networks</h3><p>Publish to LinkedIn personal profiles and company pages, Facebook Pages, Instagram professional accounts, X, YouTube and TikTok.</p></div>
-<div class="card"><h3>Local-first</h3><p>Your content, media and account tokens are stored on your own computer, not on our servers.</p></div>
-<div class="card"><h3>Scheduling calendar</h3><p>See what goes out and when, then reschedule or cancel before it publishes.</p></div>
+  <section class="relative overflow-hidden bg-ink-950 pb-24 pt-36 text-white">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+      <div class="absolute -top-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-brand-500/25 blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 h-[400px] w-[500px] rounded-full bg-indigo-500/20 blur-3xl"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]"></div>
+    </div>
+    <div class="relative mx-auto max-w-6xl px-4 text-center sm:px-6">
+      <span class="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-medium text-slate-200 backdrop-blur">Local-first · Multi-brand · 6 networks</span>
+      <h1 class="mx-auto mt-7 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-7xl">Schedule social posts for <span class="bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent">every brand</span> you run</h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">Plan, write and publish to LinkedIn, Facebook, Instagram, X, YouTube and TikTok from one calendar. Your content and accounts stay on your own computer.</p>
+      <div class="mt-9 flex flex-wrap justify-center gap-3">
+        <a href="mailto:hey@marketocat.com?subject=Marketocat%20early%20access" class="rounded-full bg-brand-500 px-7 py-3.5 text-base font-bold text-ink-950 shadow-lg shadow-brand-500/30 transition hover:bg-brand-400">Get early access</a>
+        <a href="#how" class="rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white transition hover:bg-white/10">See how it works</a>
+      </div>
+      
+<div class="relative mx-auto mt-16 max-w-5xl rounded-[28px] border border-white/15 bg-white/10 p-2 shadow-2xl shadow-black/40 backdrop-blur">
+  <div class="overflow-hidden rounded-[22px] bg-white text-left">
+    <div class="flex items-center gap-3 border-b border-slate-200 bg-slate-50 px-5 py-3">
+      <span class="h-3 w-3 rounded-full bg-red-400"></span><span class="h-3 w-3 rounded-full bg-amber-400"></span><span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+      <span class="ml-3 text-sm font-semibold text-slate-700">Acme Coffee</span>
+      <span class="rounded-full bg-brand-100 px-2.5 py-0.5 text-xs font-semibold text-brand-600">Brand</span>
+      <span class="ml-auto hidden text-xs text-slate-400 sm:block">Week of Oct 26</span>
+    </div>
+    <div class="grid md:grid-cols-[1.1fr_1.4fr]">
+      <div class="border-b border-slate-200 p-5 md:border-b-0 md:border-r">
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">New post</p>
+        <div class="mt-3 rounded-xl border border-slate-200 p-4 text-sm leading-6 text-slate-700">Our autumn blend is back ☕ Roasted in small batches, ready Monday. Which café should we visit first?</div>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="rounded-full border border-brand-400/60 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600">✓ LinkedIn</span><span class="rounded-full border border-brand-400/60 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600">✓ Instagram</span><span class="rounded-full border border-brand-400/60 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600">✓ Facebook</span><span class="rounded-full border border-brand-400/60 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600">✓ X</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between rounded-xl bg-ink-950 px-4 py-3 text-sm text-white">
+          <span>Mon, Oct 26 · 9:00 AM</span><span class="rounded-lg bg-brand-500 px-3 py-1 text-xs font-bold">Schedule</span>
+        </div>
+      </div>
+      <div class="p-5">
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Calendar</p>
+        <div class="mt-3 grid grid-cols-5 gap-2 text-xs">
+          <div class="min-h-28 rounded-xl border border-slate-200 p-2"><p class="font-semibold text-slate-500">Mon</p><p class="mt-2 rounded-lg bg-brand-100 text-brand-600 px-1.5 py-1 font-medium leading-4">9:00 Autumn blend</p></div><div class="min-h-28 rounded-xl border border-slate-200 p-2"><p class="font-semibold text-slate-500">Tue</p><p class="mt-2 rounded-lg bg-sky-100 text-sky-700 px-1.5 py-1 font-medium leading-4">12:30 Team spotlight</p></div><div class="min-h-28 rounded-xl border border-slate-200 p-2"><p class="font-semibold text-slate-500">Wed</p><p class="mt-2 rounded-lg bg-brand-100 text-brand-600 px-1.5 py-1 font-medium leading-4">9:00 Autumn blend</p><p class="mt-2 rounded-lg bg-rose-100 text-rose-700 px-1.5 py-1 font-medium leading-4">17:00 Reel: latte art</p></div><div class="min-h-28 rounded-xl border border-slate-200 p-2"><p class="font-semibold text-slate-500">Thu</p><p class="mt-2 rounded-lg bg-emerald-100 text-emerald-700 px-1.5 py-1 font-medium leading-4">10:00 Hiring post</p></div><div class="min-h-28 rounded-xl border border-slate-200 p-2"><p class="font-semibold text-slate-500">Fri</p><p class="mt-2 rounded-lg bg-violet-100 text-violet-700 px-1.5 py-1 font-medium leading-4">15:00 Weekend menu</p></div>
+        </div>
+        <div class="mt-4 flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-700">✓ Published to LinkedIn · Company page · 2 min ago</div>
+      </div>
+    </div>
+  </div>
 </div>
-<h2>How it works</h2>
-<ol>
-<li>Connect your social accounts with each platform's official sign-in (OAuth). You choose which pages or accounts the app can use.</li>
-<li>Write a post, attach images or video, and adjust the text for each network.</li>
-<li>Pick a date and time. At that time the app publishes the post through the platform's official API.</li>
-<li>Disconnect any account at any time. That deletes its access token from your computer.</li>
-</ol>
-<h2>What the app does with your social accounts</h2>
-<p>AISocialsManager only publishes content you created and scheduled, and reads the basic profile and page information needed to show which account you are posting to. It does not post on its own, follow or message people, or collect data about your audience. See the <a href="/privacy">Privacy Policy</a> for details.</p>
-<h2>Contact</h2>
-<p>Questions, support or data requests: <a href="mailto:hey@marketocat.com">hey@marketocat.com</a>.</p>
+    </div>
+  </section>
+
+  <section class="border-b border-slate-200 bg-white py-10">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <p class="text-center text-sm font-semibold uppercase tracking-wider text-slate-400">Publishes to</p>
+      <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        <div class="rounded-2xl border border-slate-200 px-4 py-3"><p class="flex items-center gap-2 font-bold"><span class="h-2.5 w-2.5 rounded-full" style="background:#0a66c2"></span>LinkedIn</p><p class="mt-0.5 text-xs text-slate-500">Profiles and company pages</p></div><div class="rounded-2xl border border-slate-200 px-4 py-3"><p class="flex items-center gap-2 font-bold"><span class="h-2.5 w-2.5 rounded-full" style="background:#1877f2"></span>Facebook</p><p class="mt-0.5 text-xs text-slate-500">Pages you manage</p></div><div class="rounded-2xl border border-slate-200 px-4 py-3"><p class="flex items-center gap-2 font-bold"><span class="h-2.5 w-2.5 rounded-full" style="background:#e1306c"></span>Instagram</p><p class="mt-0.5 text-xs text-slate-500">Professional accounts</p></div><div class="rounded-2xl border border-slate-200 px-4 py-3"><p class="flex items-center gap-2 font-bold"><span class="h-2.5 w-2.5 rounded-full" style="background:#0f172a"></span>X</p><p class="mt-0.5 text-xs text-slate-500">Posts and threads</p></div><div class="rounded-2xl border border-slate-200 px-4 py-3"><p class="flex items-center gap-2 font-bold"><span class="h-2.5 w-2.5 rounded-full" style="background:#ff0000"></span>YouTube</p><p class="mt-0.5 text-xs text-slate-500">Videos and Shorts</p></div><div class="rounded-2xl border border-slate-200 px-4 py-3"><p class="flex items-center gap-2 font-bold"><span class="h-2.5 w-2.5 rounded-full" style="background:#25f4ee"></span>TikTok</p><p class="mt-0.5 text-xs text-slate-500">Video posts</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="scroll-mt-8 bg-slate-50 py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">How it works</p>
+      <h2 class="mt-2 max-w-2xl text-4xl font-extrabold tracking-tight sm:text-5xl">From draft to published in three steps</h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-ink-950 text-lg font-extrabold text-brand-400">1</span><h3 class="mt-5 text-xl font-bold">Connect your accounts</h3><p class="mt-2 leading-7 text-slate-600">Sign in through each network’s official login and choose exactly which pages, channels or profiles Marketocat may post to.</p></div><div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-ink-950 text-lg font-extrabold text-brand-400">2</span><h3 class="mt-5 text-xl font-bold">Write and schedule</h3><p class="mt-2 leading-7 text-slate-600">Draft a post, attach images or video, tailor it per network, and pick a date and time on the calendar.</p></div><div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-ink-950 text-lg font-extrabold text-brand-400">3</span><h3 class="mt-5 text-xl font-bold">Marketocat publishes</h3><p class="mt-2 leading-7 text-slate-600">At the scheduled time the post goes out through the official API, and you get a link to the live post.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="scroll-mt-8 py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">Features</p>
+        <h2 class="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">Built for people who run more than one brand</h2>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="group rounded-3xl border border-slate-200 p-7 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/10"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 group-hover:bg-brand-500 group-hover:text-white"><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><h3 class="mt-5 text-lg font-bold">Multi-brand workspaces</h3><p class="mt-2 leading-7 text-slate-600">Keep each brand’s accounts, drafts, media and calendar separate, and switch between them in one click.</p></div><div class="group rounded-3xl border border-slate-200 p-7 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/10"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 group-hover:bg-brand-500 group-hover:text-white"><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg></span><h3 class="mt-5 text-lg font-bold">One post, every network</h3><p class="mt-2 leading-7 text-slate-600">Write once, then tailor the caption, hashtags and media for each network before it goes out.</p></div><div class="group rounded-3xl border border-slate-200 p-7 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/10"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 group-hover:bg-brand-500 group-hover:text-white"><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4 9h16M5 6h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z"/></svg></span><h3 class="mt-5 text-lg font-bold">Visual calendar</h3><p class="mt-2 leading-7 text-slate-600">See every scheduled post by day and week. Drag to reschedule, or cancel before it publishes.</p></div><div class="group rounded-3xl border border-slate-200 p-7 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/10"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 group-hover:bg-brand-500 group-hover:text-white"><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"/></svg></span><h3 class="mt-5 text-lg font-bold">Local-first by design</h3><p class="mt-2 leading-7 text-slate-600">Content, media and account tokens stay on your computer. No Marketocat server ever sees them.</p></div><div class="group rounded-3xl border border-slate-200 p-7 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/10"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 group-hover:bg-brand-500 group-hover:text-white"><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></span><h3 class="mt-5 text-lg font-bold">Official APIs only</h3><p class="mt-2 leading-7 text-slate-600">Accounts connect through each platform’s own sign-in (OAuth), and every post uses its official publishing API.</p></div><div class="group rounded-3xl border border-slate-200 p-7 transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-lg hover:shadow-brand-500/10"><span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 group-hover:bg-brand-500 group-hover:text-white"><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></span><h3 class="mt-5 text-lg font-bold">Clear publish status</h3><p class="mt-2 leading-7 text-slate-600">See whether each post was published, with a direct link to it, or why a platform rejected it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6">
+    <div class="relative mx-auto max-w-6xl overflow-hidden rounded-[32px] bg-ink-950 px-8 py-14 text-white sm:px-14">
+      <div aria-hidden="true" class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-brand-500/30 blur-3xl"></div>
+      <div class="relative grid items-center gap-10 md:grid-cols-[1.4fr_1fr]">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wider text-brand-400">Privacy</p>
+          <h2 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Your data stays on your computer</h2>
+          <p class="mt-4 max-w-xl leading-7 text-slate-300">Marketocat stores posts, media and access tokens locally. It talks only to the networks you connect, only to do what you scheduled. No ads, no tracking, no selling data.</p>
+        </div>
+        <ul class="space-y-3 text-sm">
+          <li class="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"><span class="text-brand-400">✓</span>No Marketocat cloud holding your content</li><li class="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"><span class="text-brand-400">✓</span>Tokens never leave your device except to the platform that issued them</li><li class="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"><span class="text-brand-400">✓</span>Disconnect any account to delete its tokens instantly</li>
+          <li><a href="/privacy" class="inline-block pt-1 font-semibold text-brand-400 hover:text-brand-100">Read the privacy policy →</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="scroll-mt-8 py-24">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <p class="text-center text-sm font-semibold uppercase tracking-wider text-brand-600">FAQ</p>
+      <h2 class="mt-2 text-center text-4xl font-extrabold tracking-tight">Questions, answered</h2>
+      <div class="mt-10 divide-y divide-slate-200 rounded-3xl border border-slate-200">
+        <details class="group p-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold">Where is my data stored?<span class="text-2xl font-normal text-brand-500 transition group-open:rotate-45">+</span></summary><p class="mt-3 leading-7 text-slate-600">On your own computer. Marketocat is local-first: posts, media, schedules and access tokens live in a local database. We do not run a server that receives them.</p></details><details class="group p-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold">Which networks can I publish to?<span class="text-2xl font-normal text-brand-500 transition group-open:rotate-45">+</span></summary><p class="mt-3 leading-7 text-slate-600">LinkedIn (personal profiles and company pages), Facebook Pages, Instagram professional accounts, X, YouTube and TikTok.</p></details><details class="group p-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold">Does Marketocat post anything on its own?<span class="text-2xl font-normal text-brand-500 transition group-open:rotate-45">+</span></summary><p class="mt-3 leading-7 text-slate-600">No. It only publishes posts you wrote and scheduled, to the accounts you picked. It never likes, follows, comments or sends messages.</p></details><details class="group p-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold">How do I disconnect an account or delete my data?<span class="text-2xl font-normal text-brand-500 transition group-open:rotate-45">+</span></summary><p class="mt-3 leading-7 text-slate-600">Disconnect the account in Marketocat to delete its tokens, and revoke access in the platform’s settings. Full steps are on our <a class="font-semibold text-brand-600 underline" href="/data-deletion">data deletion page</a>.</p></details><details class="group p-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold">How much does it cost?<span class="text-2xl font-normal text-brand-500 transition group-open:rotate-45">+</span></summary><p class="mt-3 leading-7 text-slate-600">Marketocat is in early access. Email us to get started.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 pb-24 sm:px-6">
+    <div class="mx-auto max-w-6xl rounded-[32px] bg-gradient-to-br from-brand-400 to-brand-600 px-8 py-14 text-center sm:px-14">
+      <h2 class="text-3xl font-extrabold tracking-tight text-ink-950 sm:text-4xl">Ready to put your posting on autopilot?</h2>
+      <p class="mx-auto mt-3 max-w-xl text-ink-900/80">Marketocat is in early access. Tell us about your brands and we’ll get you set up.</p>
+      <a href="mailto:hey@marketocat.com?subject=Marketocat%20early%20access" class="mt-8 inline-block rounded-full bg-ink-950 px-7 py-3.5 font-bold text-white transition hover:bg-ink-800">Email hey@marketocat.com</a>
+    </div>
+  </section>
 </main>
-<footer>
-<p>AISocialsManager is a product of Marketo Cat. &copy; 2026 Marketo Cat.</p>
-<p><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a><a href="/data-deletion">Data Deletion</a><a href="/contact">Contact</a></p>
+
+<footer class="bg-ink-950 text-slate-400">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[2fr_1fr_1fr]">
+    <div>
+      <a href="/" class="flex items-center gap-2.5 text-lg font-extrabold text-white"><img src="/logo.svg" alt="" width="36" height="36" class="h-9 w-9 rounded-xl bg-white p-0.5"><span>Marketo<span class="text-brand-500">cat</span></span></a>
+      <p class="mt-4 max-w-sm text-sm leading-6">A local-first social media scheduler for teams and freelancers who manage more than one brand.</p>
+    </div>
+    <div>
+      <h3 class="text-sm font-semibold text-white">Product</h3>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li><a class="hover:text-white" href="/#how">How it works</a></li>
+        <li><a class="hover:text-white" href="/#features">Features</a></li>
+        <li><a class="hover:text-white" href="/#faq">FAQ</a></li>
+        <li><a class="hover:text-white" href="/contact">Contact &amp; support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-sm font-semibold text-white">Legal</h3>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li><a class="hover:text-white" href="/privacy">Privacy Policy</a></li>
+        <li><a class="hover:text-white" href="/terms">Terms of Service</a></li>
+        <li><a class="hover:text-white" href="/data-deletion">Data Deletion</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 px-4 py-6 text-xs sm:px-6">
+      <p>&copy; 2026 Marketo Cat. All rights reserved.</p>
+      <p><a class="hover:text-white" href="mailto:hey@marketocat.com">hey@marketocat.com</a></p>
+    </div>
+  </div>
 </footer>
 </body>
 </html>

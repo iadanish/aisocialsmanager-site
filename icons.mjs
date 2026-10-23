@@ -1,10 +1,7 @@
-// Renders logo.svg into the square PNG icons (white tile) used by app-review portals.
-import { readFileSync, writeFileSync } from 'node:fs';
-import { Resvg } from '@resvg/resvg-js';
+// Exports the original Marketo Cat LinkedIn logo (marketocat-logo.jpg, 400x400) as PNG icons. The artwork is not altered.
+import sharp from 'sharp';
 
-const inner = readFileSync('logo.svg', 'utf8').replace(/^<svg[^>]*>|<\/svg>\s*$/g, '');
-const tile = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -12 144 144"><rect x="-12" y="-12" width="144" height="144" fill="#fff"/>${inner}</svg>`;
+await sharp('marketocat-logo.jpg').png().toFile('logo.png');
 for (const size of [1024, 512, 120]) {
-  const png = new Resvg(tile, { fitTo: { mode: 'width', value: size } }).render().asPng();
-  writeFileSync(`icon-${size}.png`, png);
+  await sharp('marketocat-logo.jpg').resize(size, size, { kernel: 'lanczos3' }).png().toFile(`icon-${size}.png`);
 }

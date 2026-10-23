@@ -22,7 +22,7 @@ const NAV = [
 ];
 
 const logo = (size = 'h-9 w-9') =>
-  `<img src="/logo.svg" alt="" width="36" height="36" class="${size} rounded-xl bg-white p-0.5">`;
+  `<img src="/logo.png" alt="" width="36" height="36" class="${size} rounded-xl bg-white p-0.5">`;
 
 const header = (dark) => `
 <header class="${dark ? 'absolute inset-x-0 top-0 z-20' : 'border-b border-slate-200 bg-white'}">
@@ -76,7 +76,7 @@ const page = (file, { title, desc, path, dark = false }, body) => writeFileSync(
 <title>${title}</title>
 <meta name="description" content="${desc}">
 <link rel="canonical" href="https://marketocat.com${path}">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="/icon-512.png">
 <meta name="theme-color" content="#0b1324">
 <meta property="og:type" content="website">

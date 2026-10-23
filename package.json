@@ -7,11 +7,11 @@
     "dev": "node build.mjs && tailwindcss -i src/input.css -o assets/site.css --watch"
   },
   "devDependencies": {
-    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/cli": "^4.3.3",
     "iconsax-react": "^0.0.8",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3"
   }
 }
